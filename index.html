@@ -1,22 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Linkssss</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 10px 0; }
-    a { text-decoration: none; color: #0077cc; font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin - Visual Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, "Book Antiqua", Georgia, serif;
+            background: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            gap: 121px;
+            padding: 8px 32px;
+        }
+
+        .logo {
+            width: 70.8px;
+            height: 11px;
+            flex-shrink: 0;
+        }
+
+        .nav-text {
+            display: flex;
+            gap: 182px;
+            align-items: flex-end;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 24px;
+            align-items: flex-end;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        /* Main Content Card */
+        .main-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 368px;
+            height: 368px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            width: 368px;
+            gap: 8px;
+            padding: 20px 0 0 0;
+        }
+
+        .title {
+            font-size: 36px;
+            color: #000;
+            text-align: left;
+            line-height: 1.2;
+            font-weight: normal;
+        }
+
+        .title-italic {
+            font-style: italic;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #000;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        /* Links Section */
+        .links-section {
+            width: 367px;
+            height: 63px;
+            position: relative;
+        }
+
+        .links-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 367px;
+            position: absolute;
+            left: 0.5px;
+            top: 0px;
+        }
+
+        .links-left {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .link-item {
+            font-size: 16px;
+            font-style: italic;
+            color: #000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .twitter-x {
+            position: absolute;
+            left: 94px;
+            top: 23px;
+            width: 81px;
+        }
+
+        .instagram {
+            position: absolute;
+            left: 191px;
+            top: 43px;
+            width: 80px;
+        }
+
+        /* Decorative Lines */
+        .line-left {
+            position: absolute;
+            left: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-style: italic;
+            color: #000;
+        }
+
+        .line-right {
+            position: absolute;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-style: italic;
+            color: #000;
+        }
+
+        .line-bottom {
+            position: absolute;
+            left: 50%;
+            bottom: 80px;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-style: italic;
+            color: #000;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                height: auto;
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-text {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .nav-left {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .main-card {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                max-width: 350px;
+                margin: 40px auto;
+                padding: 30px 20px;
+                height: auto;
+            }
+
+            .title {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .description {
+                text-align: center;
+                font-size: 13px;
+            }
+
+            .links-section {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                position: relative;
+            }
+
+            .links-row {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            .links-left {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .twitter-x, .instagram {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: auto;
+            }
+
+            .line-left, .line-right {
+                display: none;
+            }
+
+            .line-bottom {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 30px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .header {
+                padding: 8px 15px;
+            }
+
+            .main-card {
+                margin: 20px auto;
+                padding: 25px 15px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            .link-item {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, I'm Amin 👋</h1>
-  <ul>
-    <li><a href="https://instagram.com/aminnajafi">Instagram</a></li>
-    <li><a href="https://linkedin.com/in/aminnajafi">LinkedIn</a></li>
-    <li><a href="mailto:amin@example.com">Email me</a></li>
-  </ul>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <svg width="71" height="11" viewBox="0 0 71 11" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path d="M59.2578 0.242188H62.1328L68.6094 8.1875V2.07812C68.6094 1.42708 68.5365 1.02083 68.3906 0.859375C68.1979 0.640625 67.8932 0.53125 67.4766 0.53125H67.1094V0.242188H70.7969V0.53125H70.4219C69.974 0.53125 69.6562 0.666667 69.4688 0.9375C69.3542 1.10417 69.2969 1.48438 69.2969 2.07812V11.0078H69.0156L62.0312 2.47656V9C62.0312 9.65104 62.1016 10.0573 62.2422 10.2188C62.4401 10.4375 62.7448 10.5469 63.1562 10.5469H63.5312V10.8359H59.8438V10.5469H60.2109C60.6641 10.5469 60.9844 10.4115 61.1719 10.1406C61.2865 9.97396 61.3438 9.59375 61.3438 9V1.63281C61.0365 1.27344 60.8021 1.03646 60.6406 0.921875C60.4844 0.807292 60.2526 0.700521 59.9453 0.601562C59.7943 0.554688 59.5651 0.53125 59.2578 0.53125V0.242188Z" fill="black"/>
+                    <path d="M59.0781 10.5469V10.8359H54.5391V10.5469H54.9141C55.3516 10.5469 55.6693 10.4193 55.8672 10.1641C55.9922 9.9974 56.0547 9.59635 56.0547 8.96094V2.11719C56.0547 1.58073 56.0208 1.22656 55.9531 1.05469C55.901 0.924479 55.7943 0.8125 55.6328 0.71875C55.4036 0.59375 55.1641 0.53125 54.9141 0.53125H54.5391V0.242188H59.0781V0.53125H58.6953C58.263 0.53125 57.9479 0.658854 57.75 0.914062C57.6198 1.08073 57.5547 1.48177 57.5547 2.11719V8.96094C57.5547 9.4974 57.5885 9.85156 57.6562 10.0234C57.7083 10.1536 57.8177 10.2656 57.9844 10.3594C58.2083 10.4844 58.4453 10.5469 58.6953 10.5469H59.0781Z" fill="black"/>
+                    <path d="M46.4531 10.8359L42.3594 1.92188V9C42.3594 9.65104 42.4297 10.0573 42.5703 10.2188C42.763 10.4375 43.0677 10.5469 43.4844 10.5469H43.8594V10.8359H40.1719V10.5469H40.5469C40.9948 10.5469 41.3125 10.4115 41.5 10.1406C41.6146 9.97396 41.6719 9.59375 41.6719 9V2.07812C41.6719 1.60938 41.6198 1.27083 41.5156 1.0625C41.4427 0.911458 41.3073 0.786458 41.1094 0.6875C40.9167 0.583333 40.6042 0.53125 40.1719 0.53125V0.242188H43.1719L47.0156 8.53125L50.7969 0.242188H53.7969V0.53125H53.4297C52.9766 0.53125 52.6562 0.666667 52.4688 0.9375C52.3542 1.10417 52.2969 1.48438 52.2969 2.07812V9C52.2969 9.65104 52.3698 10.0573 52.5156 10.2188C52.7083 10.4375 53.013 10.5469 53.4297 10.5469H53.7969V10.8359H49.2969V10.5469H49.6719C50.125 10.5469 50.4427 10.4115 50.625 10.1406C50.7396 9.97396 50.7969 9.59375 50.7969 9V1.92188L46.7109 10.8359H46.4531Z" fill="black"/>
+                    <path d="M32.2188 10.8359L28.125 1.92188V9C28.125 9.65104 28.1953 10.0573 28.3359 10.2188C28.5286 10.4375 28.8333 10.5469 29.25 10.5469H29.625V10.8359H25.9375V10.5469H26.3125C26.7604 10.5469 27.0781 10.4115 27.2656 10.1406C27.3802 9.97396 27.4375 9.59375 27.4375 9V2.07812C27.4375 1.60938 27.3854 1.27083 27.2812 1.0625C27.2083 0.911458 27.0729 0.786458 26.875 0.6875C26.6823 0.583333 26.3698 0.53125 25.9375 0.53125V0.242188H28.9375L32.7812 8.53125L36.5625 0.242188H39.5625V0.53125H39.1953C38.7422 0.53125 38.4219 0.666667 38.2344 0.9375C38.1198 1.10417 38.0625 1.48438 38.0625 2.07812V9C38.0625 9.65104 38.1354 10.0573 38.2812 10.2188C38.474 10.4375 38.7786 10.5469 39.1953 10.5469H39.5625V10.8359H35.0625V10.5469H35.4375C35.8906 10.5469 36.2083 10.4115 36.3906 10.1406C36.5052 9.97396 36.5625 9.59375 36.5625 9V1.92188L32.4766 10.8359H32.2188Z" fill="black"/>
+                    <path d="M17.9844 10.8359L13.8906 1.92188V9C13.8906 9.65104 13.9609 10.0573 14.1016 10.2188C14.2943 10.4375 14.599 10.5469 15.0156 10.5469H15.3906V10.8359H11.7031V10.5469H12.0781C12.526 10.5469 12.8438 10.4115 13.0312 10.1406C13.1458 9.97396 13.2031 9.59375 13.2031 9V2.07812C13.2031 1.60938 13.151 1.27083 13.0469 1.0625C12.974 0.911458 12.8385 0.786458 12.6406 0.6875C12.4479 0.583333 12.1354 0.53125 11.7031 0.53125V0.242188H14.7031L18.5469 8.53125L22.3281 0.242188H25.3281V0.53125H24.9609C24.5078 0.53125 24.1875 0.666667 24 0.9375C23.8854 1.10417 23.8281 1.48438 23.8281 2.07812V9C23.8281 9.65104 23.901 10.0573 24.0469 10.2188C24.2396 10.4375 24.5443 10.5469 24.9609 10.5469H25.3281V10.8359H20.8281V10.5469H21.2031C21.6562 10.5469 21.974 10.4115 22.1562 10.1406C22.2708 9.97396 22.3281 9.59375 22.3281 9V1.92188L18.2422 10.8359H17.9844Z" fill="black"/>
+                    <path d="M7.19531 7.28906H3.09375L2.375 8.96094C2.19792 9.3724 2.10938 9.67969 2.10938 9.88281C2.10938 10.0443 2.1849 10.1875 2.33594 10.3125C2.49219 10.4323 2.82552 10.5104 3.33594 10.5469V10.8359H0V10.5469C0.442708 10.4688 0.729167 10.3672 0.859375 10.2422C1.125 9.99219 1.41927 9.48438 1.74219 8.71875L5.46875 0H5.74219L9.42969 8.8125C9.72656 9.52083 9.99479 9.98177 10.2344 10.1953C10.4792 10.4036 10.8177 10.5208 11.25 10.5469V10.8359H7.07031V10.5469C7.49219 10.526 7.77604 10.4557 7.92188 10.3359C8.07292 10.2161 8.14844 10.0703 8.14844 9.89844C8.14844 9.66927 8.04427 9.30729 7.83594 8.8125L7.19531 7.28906ZM6.97656 6.71094L5.17969 2.42969L3.33594 6.71094H6.97656Z" fill="black"/>
+                </svg>
+            </div>
+            
+            <div class="nav-text">
+                <div class="nav-left">
+                    <div class="nav-item">
+                        Visual Designer ,<br>
+                        Branding, Product design,
+                    </div>
+                    <div class="nav-item">Creative Coding</div>
+                </div>
+                <div class="nav-item">Branding, Product design,</div>
+            </div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="main-card">
+            <div class="content-section">
+                <h1 class="title">
+                    <span class="title-italic">Visual Designer</span>,<br>
+                    Branding, Product design,
+                </h1>
+                <p class="description">
+                    Amin is a multidisciplinary designer who believes that great design begins with empathy and ends with clarity. With a user-centered mindset, he crafts thoughtful visual identities, intuitive products, and meaningful experiences that reflect
+                </p>
+            </div>
+            
+            <div class="links-section">
+                <div class="links-row">
+                    <div class="links-left">
+                        <a href="https://letterboxd.com/aminxd" class="link-item" target="_blank">Letterboxd</a>
+                        <a href="https://linkedin.com/in/aminxd" class="link-item" target="_blank">Linkedin</a>
+                    </div>
+                    <a href="https://medium.com/@aminxd" class="link-item" target="_blank">Medium</a>
+                </div>
+                <a href="https://twitter.com/aminxd" class="link-item twitter-x" target="_blank">Twitter X!</a>
+                <a href="https://instagram.com/aminxd" class="link-item instagram" target="_blank">Instagram</a>
+            </div>
+        </div>
+
+        <!-- Decorative Lines -->
+        <div class="line-left">-</div>
+        <div class="line-right">-</div>
+        <div class="line-bottom">-</div>
+    </div>
 </body>
 </html>
